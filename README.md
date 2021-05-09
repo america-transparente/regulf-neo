@@ -1,6 +1,5 @@
-# reguleque-is
-
-_This project was generated with [create-instantsearch-app](https://github.com/algolia/create-instantsearch-app) by [Algolia](https://algolia.com)._
+# regulf-neo
+Frontend for [Reguleque](https://reguleque.cl), a search engine for chilean public workers records' as obtained through transparency databases.
 
 ## Get started
 
@@ -19,4 +18,6 @@ yarn start
 ```
 
 Open http://localhost:3000 to see your app.
-# regulf-neo
+
+## Running with Typesense
+For the frontend to work it must be paired with a working [Typesense](https://typesense.org/) instance in the backend. You should also clone [agucova/reguleque-search](reguleque-search), start a Typesense instance and use the provided scripts to load test data. (Make sure to fill in the endpoint and API key in `src/app.js`.
