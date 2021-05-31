@@ -148,6 +148,8 @@ function nc(el, opt = {}) {
         .replace(/\bY\s\b/g, "y ")
         .replace(/\bE\s\b/g, "e ")
         .replace(/\bI\s\b/g, "i ")
+        .replace(/\bDel\s\b/g, "del ")
+        .replace(/\bAl\s\b/g, "al ")
 
         // strip extra spaces
         .replace(/\s{2,}/g, ' ');
