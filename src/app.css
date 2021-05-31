@@ -1,11 +1,12 @@
 .header {
+  width: 100%;
   display: flex;
   align-items: center;
   min-height: 50px;
   padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
   background-image: linear-gradient(284deg, #94ca02, #088d1b);
   color: #fff;
-  margin-bottom: 1rem;
 }
 
 .header a {
@@ -15,7 +16,7 @@
 
 .header-title {
   font-size: 1.2rem;
-  font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+  font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
   font-weight: 900;
   font-style: italic;
   text-transform: uppercase;
@@ -25,8 +26,9 @@
   font-size: 1.2rem;
 }
 
-.container {
-  max-width: 2000px;
+.main-container {
+  align-items: center;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -41,42 +43,12 @@
 
 .search-panel__results {
   flex: 5;
+  width: 100%;
 }
 
 .ais-Highlight-highlighted {
   color: inherit;
   font-size: inherit;
-}
-
-
-.hit-name {
-  font-family: Roboto, sans-serif;
-  color: #333;
-  font-weight: 400;
-  font-size: 1.3em;
-}
-
-
-.hit-data {
-  font-family: "Fira Code", monospace;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
-  word-break: break-all;
-  color: rgb(15, 15, 15);
-}
-
-.hit-key {
-  font-family: "Fira Code", monospace;
-  font-weight: 400;
-  font-size: 14px;
-  flex: 0 1 50%;
-  color: #777;
-  display:inline;
-}
-
-.hit-key::after, .hit-key::before {
-  box-sizing: inherit;
 }
 
 #searchbox {
@@ -86,4 +58,84 @@
 #pagination {
   margin: 2rem auto;
   text-align: center;
+}
+
+.query-results {
+  margin: unset;
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 975px) {
+  .query-results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .query-results {
+    grid-template-columns: 1fr;
+  }
+}
+
+.query-result-item {
+  list-style-type: none;
+  border: solid #1c351723 2px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 #365c2d44;
+  display: flex;
+  flex-direction: column;
+  margin: unset;
+  margin: 10px 8px;
+  padding: 20px 15px;
+  min-height: 340px;
+  height: max-content;
+  width: unset;
+}
+
+.hit-name {
+  font-size: 1.2em;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.hit-info {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 30px;
+}
+
+.hit-body-key {
+  font-weight: 600;
+}
+
+.hit-contract {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.hit-contract > * {
+  flex-grow: 1;
+}
+
+.hit-button-container {
+  margin-top: auto;
+  text-align: right;
+}
+
+.hit-show-more {
+  background: #077a16;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  flex-grow: 50;
+  font-weight: bold;
+}
+
+.hit-show-more:hover {
+  background: #059e19;
+  transition-duration: 0.2s;
+  cursor: pointer;
 }
