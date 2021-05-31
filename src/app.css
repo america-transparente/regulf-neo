@@ -1,3 +1,9 @@
+
+
+.ais-Pagination { margin-top: 1em }
+.left-panel { float: left; width: 250px; }
+.right-panel { margin-left: 260px; }
+
 .header {
   width: 100%;
   display: flex;
@@ -55,11 +61,6 @@
   margin-bottom: 2rem;
 }
 
-#pagination {
-  margin: 2rem auto;
-  text-align: center;
-}
-
 .query-results {
   margin: unset;
   display: grid;
@@ -97,13 +98,12 @@
 .hit-name {
   font-size: 1.2em;
   font-weight: 700;
-  text-decoration: underline;
+  margin-top: 0;
 }
 
 .hit-info {
-  text-align: justify;
-  text-justify: inter-word;
-  margin-bottom: 30px;
+  text-align: left;
+  margin-bottom: 18px;
 }
 
 .hit-body-key {

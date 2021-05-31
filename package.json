@@ -14,11 +14,13 @@
     "eslint-config-algolia": "13.2.3",
     "eslint-config-prettier": "3.6.0",
     "eslint-plugin-import": "2.19.1",
-    "eslint-plugin-prettier": "3.1.2",
     "parcel-bundler": "1.12.5",
     "prettier": "1.19.1"
   },
   "dependencies": {
+    "@compwright/namecase": "^2.0.6",
+    "namecase": "^1.1.2",
+    "names": "^1.0.0",
     "typesense-instantsearch-adapter": "^1.1.1"
   }
 }

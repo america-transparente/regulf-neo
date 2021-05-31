@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css">
   <link rel="stylesheet" href="./src/index.css">
   <link rel="stylesheet" href="./src/app.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:ital,wght@1,900&display=swap"
+    rel="stylesheet">
   <title>Reguleque</title>
 </head>
 
@@ -22,14 +24,21 @@
   </header>
 
   <div class="main-container">
-    <div class="search-panel">
-      <div class="search-panel__results">
-        <div id="searchbox"></div>
-        <div id="hits"></div>
-      </div>
+    <div class="left-panel">
+      <h2>Organismo</h2>
+      <div id="organismo"></div>
+      <h2>Tipo Contrato</h2>
+      <div id="tipo-contrato"></div>
+      <h2>Año</h2>
+      <div id="año"></div>
+      <h2>Mes</h2>
+      <div id="mes"></div>
     </div>
 
-    <div id="pagination"></div>
+    <div class="right-panel">
+      <div id="searchbox"></div>
+      <div id="hits"></div>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/algoliasearch/3.32.0/algoliasearchLite.min.js"></script>
