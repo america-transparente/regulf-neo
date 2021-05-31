@@ -148,11 +148,11 @@ search.addWidgets([
         }
     }),
     // TODO: Add month support to schena
-    // instantsearch.widgets.refinementList({
-    //     container: "#mes",
-    //     attribute: "mes",
-    //     limit: 12,
-    // }),
+    instantsearch.widgets.refinementList({
+        container: "#mes",
+        attribute: "mes",
+        limit: 12,
+    }),
     // TODO: Figure out int conversion
     // instantsearch.widgets.rangeSlider({
     //     container: '#año',
@@ -167,6 +167,13 @@ search.addWidgets([
     //         }));
     //     }
     // }),
+    instantsearch.widgets.rangeSlider({
+        container: '#grado-eus',
+        attribute: 'grado_eus',
+        // min: 2010,
+        // max: 2021,
+        // step: 1,
+    }),
     instantsearch.widgets.hits({
         container: "#hits",
         transformItems: tidyItems,
@@ -177,23 +184,28 @@ search.addWidgets([
         templates: {
             item: /*html*/`
                 <p class="hit-name">
-                {{nombre}}
+                <b>{{nombre}}</b> <span class="hit-fecha">({{mes}} {{año}})</span>
                 </p>
 
                 <div class="hit-contract">
-                <span><b>Tipo:</b> <span title="tipo del contrato">{{tipo_contrato}}</span></span>
-                <span><b>Renumeración:</b>  <span title="renumeración líquida">{{remuneración_líquida_mensual}}</span></span>
+                <p>
+                <b>Organismo:</b> {{nombre_organismo}}</br>
+                <b>Cargo:</b> {{tipo_cargo}}</br>
+                <b>Tipo:</b> <span title="tipo del contrato">{{tipo_contrato}}</span></br>
+                <b>Renumeración Líquida:</b>  <span title="renumeración líquida">{{remuneración_líquida_mensual}}</span></p>
                 </div>
 
-                <div class="hit-info">
+                <!-- <div class="hit-info">
                 Trabajando como
                 <span class="hit-body-key" title="tipo cargo">{{tipo_cargo}}</span>
                 en
                 <span class="hit-body-key" title="nombre organismo">{{nombre_organismo}}</span>
-                desde
+                -->
+                <div>
+                Desde el
                 <time class="hit-body-key" datetime="{{hit.fecha_ingreso}}" title="fecha ingreso">{{fecha_ingreso}}</time>
                 {{#fecha_término}}
-                    hasta <time class="hit-body-key" datetime="{{fecha_término}}" title="fecha término">{{fecha_término}}</time>
+                    hasta el <time class="hit-body-key" datetime="{{fecha_término}}" title="fecha término">{{fecha_término}}</time>
                 {{/fecha_término}}
                 </div>
 
@@ -283,9 +295,9 @@ search.addWidgets([
     instantsearch.widgets.pagination({
         container: '#pagination',
     }),
-    instantsearch.widgets.configure({
-        hits: 5,
-    })
+    // instantsearch.widgets.configure({
+    //     attributesForFaceting: ["mes"]
+    // })
 ]);
 
 search.start();

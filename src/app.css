@@ -19,6 +19,9 @@ body {
     margin-bottom: 25px;
 }
 
+.panel-block {
+    max-width: 220px;
+}
 .panel-block .ais-SearchBox-input {
     font-size: 14px;
     /* margin-top: 5px; */
@@ -121,7 +124,7 @@ body {
 
 .hit-name {
     font-size: 1.2em;
-    font-weight: 700;
+    /* font-weight: 700; */
     margin-top: 0;
 }
 
@@ -130,12 +133,16 @@ body {
     margin-bottom: 18px;
 }
 
+.hit-fecha {
+    text-decoration: none;
+}
+
 .hit-body-key {
     font-weight: 600;
 }
 
 .hit-contract {
-    display: flex;
+    /* display: flex; */
     margin-bottom: 15px;
 }
 
