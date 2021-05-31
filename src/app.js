@@ -4,12 +4,12 @@ import TypesenseInstantSearchAdapter from 'typesense-instantsearch-adapter';
 
 const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
   server: {
-    apiKey: 'xd', // Be sure to use the search-only-api-key
+    apiKey: '4K0LeSFERNOw5dx36AqKlGhiSRIbJrQn', // Public search-only key for staging
     nodes: [
       {
-        host: 'localhost',
-        port: '8108',
-        protocol: 'http',
+        host: 'api.reguleque.cl',
+        port: '443',
+        protocol: 'https',
       },
     ],
   },

@@ -159,3 +159,4 @@ output-*/
 
 .env
 .env*
+.vscode/settings.json
