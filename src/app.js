@@ -4,7 +4,7 @@ import TypesenseInstantSearchAdapter from 'typesense-instantsearch-adapter';
 
 const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
   server: {
-    apiKey: '4K0LeSFERNOw5dx36AqKlGhiSRIbJrQn', // Public search-only key for staging
+    apiKey: 'srBcnC2nujsubMYmIJ9fc4dCflbdImSw', // Public search-only key for staging
     nodes: [
       {
         host: 'api.reguleque.cl',
