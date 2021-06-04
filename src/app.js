@@ -33,7 +33,7 @@ var revenueFormatter = new Intl.NumberFormat('es-CL', {
     style: 'currency',
     currency: 'CLP',
 
-    // These options are needed to round to whole numbers if that's what you want.
+    // Whole numbers
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
 });
