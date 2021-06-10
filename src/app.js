@@ -167,13 +167,13 @@ search.addWidgets([
     //         }));
     //     }
     // }),
-    instantsearch.widgets.rangeSlider({
-        container: '#grado-eus',
-        attribute: 'grado_eus',
-        // min: 2010,
-        // max: 2021,
-        // step: 1,
-    }),
+    // instantsearch.widgets.rangeSlider({
+    //     container: '#grado-eus',
+    //     attribute: 'grado_eus',
+    //     // min: 2010,
+    //     // max: 2021,
+    //     // step: 1,
+    // }),
     instantsearch.widgets.hits({
         container: "#hits",
         transformItems: tidyItems,
