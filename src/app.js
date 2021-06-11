@@ -252,9 +252,6 @@ search.addWidgets([
                                     <th scope="row">Egreso</th>
                                     <td>{{fecha_egreso}}</td>
                                     </tr>
-                                    <th scope="row">Grado EUS</th>
-                                    <td>{{grado_eus}}</td>
-                                    </tr>
                                     <tr>
                                     <th scope="row">Remuneración Liq.</th>
                                     <td>{{remuneración_líquida_mensual}} {{unidad_monetaria}}</td>
