@@ -72,9 +72,9 @@ function tidyItems(items) {
         tipo_cargo: item.tipo_cargo?.toNameCase(),
         remuneración_líquida_mensual: formatRevenue(item.remuneración_líquida_mensual),
         remuneración_bruta_mensual: formatRevenue(item.remuneración_bruta_mensual),
-        tipo_contrato: item.tipo_contrato?.charAt(0).toUpperCase() + item.tipo_contrato?.slice(1),
-        tipo_estamento: item.tipo_estamento?.charAt(0).toUpperCase() + item.tipo_estamento?.slice(1),
-        unidad_monetaria: item.unidad_monetaria?.toLowerCase(),
+        tipo_contrato: item.tipo_contrato?.charAt(0)?.toUpperCase?.() + item.tipo_contrato?.slice(1),
+        tipo_estamento: item.tipo_estamento?.charAt(0)?.toUpperCase?.() + item.tipo_estamento?.slice(1),
+        unidad_monetaria: item.unidad_monetaria?.toLowerCase?.(),
         viáticos: formatRevenue(item.viáticos ?? "Indeterminado"),
         fecha_egreso: item.fecha_egreso ?? "Sigue trabajando",
     }))
