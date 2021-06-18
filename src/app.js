@@ -192,7 +192,7 @@ search.addWidgets([
                 <b>Organismo:</b> {{nombre_organismo}}</br>
                 <b>Cargo:</b> {{tipo_cargo}}</br>
                 <b>Tipo:</b> <span title="tipo del contrato">{{tipo_contrato}}</span></br>
-                <b>Renumeración Líquida:</b>  <span title="renumeración líquida">{{remuneración_líquida_mensual}}</span></p>
+                <b>Renumeración Bruta:</b>  <span title="renumeración bruta">{{remuneración_bruta_mensual}}</span></p>
                 </div>
 
                 <!-- <div class="hit-info">
