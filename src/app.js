@@ -6,7 +6,7 @@ var nc = require('./names');
 
 const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     server: {
-        apiKey: "Jm2EZrtX1WD3rIQOxOd9gPWYB09HndN8", // Public search-only key for staging
+        apiKey: "EwKNhrqy29PZGpO2qSJzE2bNmL7aF6Cq", // Public search-only key
         nodes: [
             {
                 host: "api.reguleque.cl",
