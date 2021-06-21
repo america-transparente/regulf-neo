@@ -9,7 +9,7 @@ const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
         apiKey: "6tAiPLTo9nUgSX8lnyNNbEvUcRj7YrXS", // Public search-only key
         nodes: [
             {
-                host: "api.reguleque.cl",
+                host: "api-direct.reguleque.cl",
                 port: "443",
                 protocol: "https",
             },
