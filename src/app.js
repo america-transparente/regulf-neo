@@ -293,9 +293,6 @@ search.addWidgets([
     instantsearch.widgets.pagination({
         container: '#pagination',
     }),
-    // instantsearch.widgets.configure({
-    //     attributesForFaceting: ["mes"]
-    // })
 ]);
 
 search.start();
@@ -303,9 +300,9 @@ search.start();
 
 const { toggle } = createPopup("YmK37jRA");
 
-// this is the first time
-if (! localStorage.noFirstVisit) {
+// this is the first time or more than 2 hours since
+if (! localStorage.firstVisit || localStorage.firstVisit >= Date.now() + 7200000) {
 // Start the user segment popup
 	toggle()    
-    localStorage.noFirstVisit = "1";
+    localStorage.firstVisit = Date.now();
 }
