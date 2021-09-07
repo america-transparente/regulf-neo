@@ -298,10 +298,15 @@ search.addWidgets([
 search.start();
 
 
-const { toggle } = createPopup("YmK37jRA");
+const { toggle } = createPopup("YmK37jRA", {
+  onSubmit: (event) => {
+    console.log(event.response_id)
+    localStorage.alreadyAnswered = 1;
+  },
+});
 
 // this is the first time or more than 2 hours since
-if (! localStorage.firstVisit || localStorage.firstVisit >= Date.now() + 7200000) {
+if (!localStorage.alreadyAnswered && (! localStorage.firstVisit || localStorage.firstVisit >= Date.now() + 1800000)) {
 // Start the user segment popup
 	toggle()    
     localStorage.firstVisit = Date.now();
