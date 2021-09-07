@@ -1,5 +1,7 @@
 /* eslint-disable camelcase */
 /* global instantsearch */
+import { createPopup } from '@typeform/embed'
+import '@typeform/embed/build/css/popup.css'
 
 import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter";
 var nc = require('./names');
@@ -63,7 +65,6 @@ String.prototype.toNameCase = function () {
 
 // Tidy items
 function tidyItems(items) {
-    console.debug(items)
     return items.map(item => ({
         ...item,
         nombre: item.nombre.toNameCase(),
@@ -298,3 +299,13 @@ search.addWidgets([
 ]);
 
 search.start();
+
+
+const { toggle } = createPopup("YmK37jRA");
+
+// this is the first time
+if (! localStorage.noFirstVisit) {
+// Start the user segment popup
+	toggle()    
+    localStorage.noFirstVisit = "1";
+}
