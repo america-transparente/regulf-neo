@@ -45,7 +45,7 @@ function formatRevenue(number) {
         return revenueFormatter.format(number);
     } else if (number == "NaN" || number == "") {
         return undefined
-    } else if (!isNaN(number)){
+    } else if (!isNaN(number)) {
         return revenueFormatter.format(parseInt(number));
     } else {
         return number;
@@ -298,16 +298,16 @@ search.addWidgets([
 search.start();
 
 
-const { toggle } = createPopup("YmK37jRA", {
-  onSubmit: (event) => {
-    console.log(event.response_id)
-    localStorage.alreadyAnswered = 1;
-  },
-});
+// const { toggle } = createPopup("YmK37jRA", {
+//   onSubmit: (event) => {
+//     console.log(event.response_id)
+//     localStorage.alreadyAnswered = 1;
+//   },
+// });
 
-// this is the first time or more than 2 hours since
-if (!localStorage.alreadyAnswered && (! localStorage.firstVisit || localStorage.firstVisit >= Date.now() + 1800000)) {
-// Start the user segment popup
-	toggle()    
-    localStorage.firstVisit = Date.now();
-}
+// // this is the first time or more than 2 hours since
+// if (!localStorage.alreadyAnswered && (! localStorage.firstVisit || localStorage.firstVisit >= Date.now() + 1800000)) {
+// // Start the user segment popup
+// 	toggle()
+//     localStorage.firstVisit = Date.now();
+// }
