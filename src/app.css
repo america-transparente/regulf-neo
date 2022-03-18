@@ -199,3 +199,12 @@ body {
 #hits-per-page {
     margin-top: 15px;
 }
+
+#donation-popup {
+    display: none;
+}
+
+#donation-image {
+    width: 100%;
+    max-width: 750px;
+}

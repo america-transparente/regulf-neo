@@ -1,10 +1,14 @@
 /* eslint-disable camelcase */
-/* global instantsearch */
-import { createPopup } from '@typeform/embed'
-import '@typeform/embed/build/css/popup.css'
-
+import instantsearch from "instantsearch.js";
+import { sortBy, hitsPerPage, searchBox, hits, refinementList, pagination } from 'instantsearch.js/es/widgets'
 import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter";
-var nc = require('./names');
+// import { Luminous } from 'luminous-lightbox';
+import { Modal } from 'bootstrap'
+
+// import { createPopup } from '@typeform/embed'
+// import '@typeform/embed/build/css/popup.css'
+
+import nc from "./names";
 
 const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     server: {
@@ -12,13 +16,13 @@ const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
         nodes: [
             {
                 host: "api-direct.reguleque.cl",
-                port: "443",
+                port: 443,
                 protocol: "https",
             },
         ],
     },
     additionalSearchParameters: {
-        queryBy: "nombre,nombre_organismo,tipo_cargo",
+        query_by: "nombre,nombre_organismo,tipo_cargo",
     },
 });
 
@@ -40,11 +44,11 @@ var revenueFormatter = new Intl.NumberFormat('es-CL', {
     maximumFractionDigits: 0,
 });
 
-function formatRevenue(number) {
+function formatRevenue(number): string | null {
     if (Number.isInteger(number)) {
         return revenueFormatter.format(number);
     } else if (number == "NaN" || number == "") {
-        return undefined
+        return null;
     } else if (!isNaN(number)) {
         return revenueFormatter.format(parseInt(number));
     } else {
@@ -64,11 +68,10 @@ String.prototype.toNameCase = function () {
 }
 
 // Tidy items
-function tidyItems(items) {
+function tidyItems(items: object[]) {
     return items.map(item => ({
         ...item,
         nombre: item.nombre.toNameCase(),
-        tipo_cargo: item.tipo_cargo?.toNameCase(),
         tipo_calificación_profesional: item.tipo_calificación_profesional?.toNameCase(),
         tipo_cargo: item.tipo_cargo?.toNameCase(),
         remuneración_líquida_mensual: formatRevenue(item.remuneración_líquida_mensual),
@@ -83,7 +86,7 @@ function tidyItems(items) {
 
 
 search.addWidgets([
-    instantsearch.widgets.sortBy({
+    sortBy({
         container: '#sort-by',
         items: [
             { label: 'Por relevancia', value: 'revenue_entry' },
@@ -93,7 +96,7 @@ search.addWidgets([
             { label: 'Grado EUS (desc)', value: 'revenue_entry/sort/grado_eus:desc' },
         ],
     }),
-    instantsearch.widgets.hitsPerPage({
+    hitsPerPage({
         container: "#hits-per-page",
         items: [
             { label: "12 por pág.", value: 12, default: true },
@@ -102,7 +105,7 @@ search.addWidgets([
             { label: "120 por pág.", value: 120 }
         ]
     }),
-    instantsearch.widgets.searchBox({
+    searchBox({
         container: "#searchbox",
         showLoadingIndicator: true,
         showSubmit: true,
@@ -110,11 +113,11 @@ search.addWidgets([
         autofocus: true,
         placeholder: "Buscar funcionarios"
     }),
-    instantsearch.widgets.refinementList({
+    refinementList({
         container: "#tipo-contrato",
         attribute: "tipo_contrato",
     }),
-    instantsearch.widgets.refinementList({
+    refinementList({
         container: "#organismo",
         attribute: "nombre_organismo",
         searchable: true,
@@ -132,7 +135,7 @@ search.addWidgets([
                 `,
         }
     }),
-    instantsearch.widgets.refinementList({
+    refinementList({
         container: "#año",
         attribute: "año",
         showMore: true,
@@ -149,7 +152,7 @@ search.addWidgets([
         }
     }),
     // TODO: Add month support to schena
-    instantsearch.widgets.refinementList({
+    refinementList({
         container: "#mes",
         attribute: "mes",
         limit: 12,
@@ -175,7 +178,7 @@ search.addWidgets([
     //     // max: 2021,
     //     // step: 1,
     // }),
-    instantsearch.widgets.hits({
+    hits({
         container: "#hits",
         transformItems: tidyItems,
         cssClasses: {
@@ -185,15 +188,16 @@ search.addWidgets([
         templates: {
             item: /*html*/`
                 <p class="hit-name">
-                <b>{{nombre}}</b> <span class="hit-fecha">({{mes}} {{año}})</span>
+                    <b>{{nombre}}</b> <span class="hit-fecha">({{mes}} {{año}})</span>
                 </p>
 
                 <div class="hit-contract">
                 <p>
-                <b>Organismo:</b> {{nombre_organismo}}</br>
-                <b>Cargo:</b> {{tipo_cargo}}</br>
-                <b>Tipo:</b> <span title="tipo del contrato">{{tipo_contrato}}</span></br>
-                <b>Renumeración Bruta:</b>  <span title="renumeración bruta">{{remuneración_bruta_mensual}}</span></p>
+                    <b>Organismo:</b> {{nombre_organismo}}</br>
+                    <b>Cargo:</b> {{tipo_cargo}}</br>
+                    <b>Tipo:</b> <span title="tipo del contrato">{{tipo_contrato}}</span></br>
+                    <b>Renumeración Bruta:</b>  <span title="renumeración bruta">{{remuneración_bruta_mensual}}</span>
+                </p>
                 </div>
 
                 <!-- <div class="hit-info">
@@ -290,24 +294,20 @@ search.addWidgets([
         `.replaceAll(/\n\s+/g, "\n"),
         },
     }),
-    instantsearch.widgets.pagination({
+    pagination({
         container: '#pagination',
     }),
 ]);
 
+// Create Bootstrap modal for donation pop-up
+const donationModal = new Modal(document.querySelector("#donation-modal")!);
+
+// this is the first time or more than 2 hours since
+if (!localStorage.alreadyAnswered && (! localStorage.firstVisit || localStorage.firstVisit >= Date.now() + 1800000) || true) {
+// Start the user segment popup
+	donationModal.show()
+
+    localStorage.firstVisit = Date.now();
+}
+
 search.start();
-
-
-// const { toggle } = createPopup("YmK37jRA", {
-//   onSubmit: (event) => {
-//     console.log(event.response_id)
-//     localStorage.alreadyAnswered = 1;
-//   },
-// });
-
-// // this is the first time or more than 2 hours since
-// if (!localStorage.alreadyAnswered && (! localStorage.firstVisit || localStorage.firstVisit >= Date.now() + 1800000)) {
-// // Start the user segment popup
-// 	toggle()
-//     localStorage.firstVisit = Date.now();
-// }
