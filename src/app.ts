@@ -303,7 +303,7 @@ search.addWidgets([
 const donationModal = new Modal(document.querySelector("#donation-modal")!);
 
 // this is the first time or more than 2 hours since
-if (!localStorage.alreadyAnswered && (! localStorage.firstVisit || localStorage.firstVisit >= Date.now() + 1800000) || true) {
+if (!localStorage.alreadyAnswered && (! localStorage.firstVisit || localStorage.firstVisit >= Date.now() + 1800000)) {
 // Start the user segment popup
 	donationModal.show()
 
