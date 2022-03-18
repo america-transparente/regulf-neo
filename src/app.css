@@ -3,7 +3,6 @@
     --main-hover-color: #059e19;
 }
 
-
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
@@ -24,11 +23,10 @@ body {
 }
 .panel-block .ais-SearchBox-input {
     font-size: 14px;
-    /* margin-top: 5px; */
-    /* margin-bottom: 5px; */
 }
 
-.ais-RefinementList-showMore, .ais-RefinementList-showMore--disabled {
+.ais-RefinementList-showMore,
+.ais-RefinementList-showMore--disabled {
     margin-top: 12px;
 }
 
@@ -118,13 +116,11 @@ body {
     margin: 10px 8px;
     padding: 20px 15px;
     min-height: 390px;
-    height: max-content;
     width: unset;
 }
 
 .hit-name {
     font-size: 1.2em;
-    /* font-weight: 700; */
     margin-top: 0;
 }
 
@@ -142,7 +138,6 @@ body {
 }
 
 .hit-contract {
-    /* display: flex; */
     margin-bottom: 15px;
 }
 
@@ -153,6 +148,7 @@ body {
 .hit-button-container {
     margin-top: auto;
     text-align: right;
+    padding-top: 20px;
 }
 
 .hit-show-more {
@@ -176,7 +172,6 @@ body {
     margin-bottom: 0px;
     color: black;
 }
-
 
 .ais-RefinementList-showMore {
     background: var(--main-color);

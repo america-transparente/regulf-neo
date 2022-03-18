@@ -7,15 +7,20 @@
     <meta name="theme-color" content="#000000">
     <link rel="manifest" href="./manifest.webmanifest">
     <link rel="shortcut icon" href="./favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api-direct.reguleque.cl/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css">
-    <link rel="stylesheet" href="./app.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:ital,wght@1,900&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="./app.css">
 
-        <title>Reguleque</title>
+    <link rel="preload" href="app.ts" as="script">
+
+    <title>Reguleque</title>
 </head>
 
 <body>
@@ -84,11 +89,7 @@
         </div>
     </div>
 
-
-
-    <script src="https://cdn.jsdelivr.net/algoliasearch/3.32.0/algoliasearchLite.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.22.0"></script>
-    <script src="./app.ts"></script>
+    <script src="./app.ts" defer></script>
 
 </body>
 

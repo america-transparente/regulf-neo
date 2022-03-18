@@ -23,6 +23,8 @@ const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     },
     additionalSearchParameters: {
         query_by: "nombre,nombre_organismo,tipo_cargo",
+        search_cutoff_ms: 2000,
+        use_cache: true,
     },
 });
 
