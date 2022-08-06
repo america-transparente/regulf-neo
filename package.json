@@ -20,7 +20,7 @@
   "dependencies": {
     "@algolia/client-search": "^4.13.0",
     "@compwright/namecase": "^2.0.6",
-    "@meilisearch/instant-meilisearch": "^0.7.1",
+    "@meilisearch/instant-meilisearch": "^0.8.1",
     "@typeform/embed": "^1.34.1",
     "algoliasearch": "^4.13.0",
     "bootstrap": "^5.1.3",
