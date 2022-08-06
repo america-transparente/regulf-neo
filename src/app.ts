@@ -1,37 +1,20 @@
 /* eslint-disable camelcase */
 import instantsearch from "instantsearch.js";
 import { sortBy, hitsPerPage, searchBox, hits, refinementList, pagination } from 'instantsearch.js/es/widgets'
-import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter";
-// import { Luminous } from 'luminous-lightbox';
-import { Modal } from 'bootstrap'
+import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 
-// import { createPopup } from '@typeform/embed'
-// import '@typeform/embed/build/css/popup.css'
+// import { Luminous } from 'luminous-lightbox';
+
+import { Modal } from 'bootstrap'
 
 import nc from "./names";
 
-const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
-    server: {
-        apiKey: "7H4w7Z28OCCZUhywxqow3EdDKXTRXkNK", // Public search-only key
-        nodes: [
-            {
-                host: "api-direct.reguleque.cl",
-                port: 443,
-                protocol: "https",
-            },
-        ],
-    },
-    additionalSearchParameters: {
-        query_by: "nombre,nombre_organismo,tipo_cargo",
-        search_cutoff_ms: 2000,
-        use_cache: true,
-    },
-});
-
-const searchClient = typesenseInstantsearchAdapter.searchClient;
+const searchClient = instantMeiliSearch(
+    "https://api.reguleque.cl"
+)
 
 const search = instantsearch({
-    indexName: "revenue_entry",
+    indexName: "reguleque",
     searchClient,
     numberLocale: 'es',
 });
@@ -91,11 +74,11 @@ search.addWidgets([
     sortBy({
         container: '#sort-by',
         items: [
-            { label: 'Por relevancia', value: 'revenue_entry' },
-            { label: 'Sueldo (asc)', value: 'revenue_entry/sort/remuneración_líquida_mensual:asc' },
-            { label: 'Sueldo (desc)', value: 'revenue_entry/sort/remuneración_líquida_mensual:desc' },
-            { label: 'Grado EUS (asc)', value: 'revenue_entry/sort/grado_eus:asc' },
-            { label: 'Grado EUS (desc)', value: 'revenue_entry/sort/grado_eus:desc' },
+            { label: 'Por relevancia', value: 'reguleque' },
+            { label: 'Sueldo (asc)', value: 'reguleque/sort/remuneración_líquida_mensual:asc' },
+            { label: 'Sueldo (desc)', value: 'reguleque/sort/remuneración_líquida_mensual:desc' },
+            { label: 'Grado EUS (asc)', value: 'reguleque/sort/grado_eus:asc' },
+            { label: 'Grado EUS (desc)', value: 'reguleque/sort/grado_eus:desc' },
         ],
     }),
     hitsPerPage({
